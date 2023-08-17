@@ -8,3 +8,7 @@
   }
 } 
 
+.tweet :global(.react-tweet-theme) {
+  --tweet-body-font-size: 1.25rem;
+}
+

@@ -7,15 +7,15 @@ import { Analytics } from "./components/analytics";
 export const metadata: Metadata = {
 	title: {
 		default: "SM",
-		template: "%s | chronark.com",
+		template: "%s | ",
 	},
-	description: "Software engineer at upstash.com and founder of planetfall.io",
+	description: "Software developer portfolio",
 	openGraph: {
-		title: "chronark.com",
+		title: "Portfolio",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
-		url: "https://chronark.com",
-		siteName: "chronark.com",
+			"Software developer portfolio",
+		url: "https://siyanda.vercel.app",
+		siteName: "S_Mkhize_front",
 		images: [
 			{
 				url: "https://chronark.com/og.png",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 				height: 1080,
 			},
 		],
-		locale: "en-US",
+		locale: "en-RSA",
 		type: "website",
 	},
 	robots: {
