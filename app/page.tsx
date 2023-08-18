@@ -65,7 +65,7 @@ export default function Home() {
 			
 			//react-tweet.vercel.app/
 			<div className="tweet dark flex min-h-screen items-center justify-center p-24">
-				<Tweet id ="1692136029791338761" />
+				<Tweet id ="1692455752424722780" />
 			</div>
 		</div>
 	);
