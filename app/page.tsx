@@ -6,16 +6,15 @@ import type { TwitterComponents } from "react-tweet";
 import { components } from "./components/react-tweet/Tweet-components";
 
 const navigation = [
-	//{ name: "Projects", href: "/projects" },
+	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
-
-	//{ name: "Products", href: "/Products" },
+	{ name: "Products", href: "/products" },
 ];
 
 export default function Home() {
 	return (
 		<div className="flex flex-col items-center justify-center w-screen overflow-x-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-			<nav className="my-16 animate-fade-in">
+			<nav className="my-16 animate-fade-in"> 
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
