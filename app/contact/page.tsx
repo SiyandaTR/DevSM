@@ -21,7 +21,7 @@ const socials = [
 		icon: <Linkedin size={20} />,
 		href: "https://Linkedin.com/SiyandaTR",
 		label: "Linkedin",
-		handle: "Siyanda Corey Mkhize",
+		handle: "S Corey Mkhize",
 	},
 	{
 		icon: <Mail size={20} />,
@@ -30,9 +30,9 @@ const socials = [
 		handle: "Dev SM@outlook",
 	},
 ];
-
+       
 export default function Example() {
-	return (
+	return ( 
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
 			<div className="container  flex items-center justify-center px-4 mx-auto py-20">
