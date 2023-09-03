@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 import {Tweet} from "react-tweet"
+// react-tweet.vercel.app
 import type { TwitterComponents } from "react-tweet";
 import { components } from "./components/react-tweet/Tweet-components";
 
@@ -13,7 +14,7 @@ const navigation = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center w-screen overflow-x-hidden bg-gradient-to-br dark:bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+		<div className="flex flex-col items-center justify-center w-screen overflow-x-hidden bg-gradient-to-tl from-gray-600 via-gray-500 to-gray-400 dark:bg-gradient-to-tl dark:from-black dark:via-zinc-600/20 dark:to-black">
 			<nav className="my-16 animate-fade-in"> 
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
@@ -21,7 +22,7 @@ export default function Home() {
 
 							key={item.href}
 							href={item.href}
-							className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+							className="text-sm duration-500 text-zinc-700 hover:text-zinc-100 dark:text-zinc-500 dark:hover:text-zinc-300"
 						>
 							{item.name}
 						</Link>
@@ -39,13 +40,13 @@ export default function Home() {
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-500 ">
+				<h2 className="text-sm text-zinc-700 dark:text-zinc-500 ">
 					Hi, my name is Siyanda, I'm building Web applications in South Africa.
 					Using the latest technology{" "}
 					<Link
 						target="_blank"
 						href="https://upstash..com"
-						className="underline duration-500 hover:text-zinc-300 " 
+						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300 " 
 					>
 						JavaScript
 					</Link>
@@ -55,16 +56,14 @@ export default function Home() {
 					<Link
 						target="_blank"
 						href="https://unkey..dev"
-						className="underline duration-500 hover:text-zinc-300"
+						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300"
 					>
 						C#
 					</Link>{" "}
 					.
 				</h2>
 			</div>
-			
-			//react-tweet.vercel.app/
-			<div className="tweet dark flex min-h-screen items-center justify-center p-24">
+			<div className="tweet dark:dark flex min-h-screen items-center justify-center p-24">
 				<Tweet id ="1692455752424722780" />
 			</div>
 		</div>
