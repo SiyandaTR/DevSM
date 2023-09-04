@@ -76,6 +76,8 @@ export default function RootLayout({
 					{children}
 					
 					<ThemeSwitch/>
+					
+					
 				</body>
 			</ThemeContextProvider>
 		</html>
