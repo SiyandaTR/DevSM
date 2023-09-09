@@ -5,6 +5,7 @@ import {Tweet} from "react-tweet"
 // react-tweet.vercel.app
 import type { TwitterComponents } from "react-tweet";
 import { components } from "./components/react-tweet/Tweet-components";
+import Skills from "./components/Skills";
 
 const navigation = [
 	{ name: "Projects", href: "/projects" },
@@ -14,7 +15,7 @@ const navigation = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center w-screen overflow-x-hidden bg-gradient-to-tl from-green-100/90 via-green-100 to-gray-100/90 dark:from-black dark:via-zinc-600/20 dark:to-black">
+		<div className="flex flex-col items-center justify-center w-screen overflow-x-hidden bg-gradient-to-tl from-green-100/90 via-green-100 to-green-100/90 dark:from-black dark:via-zinc-600/20 dark:to-black">
 			<nav className="my-16 animate-fade-in"> 
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
@@ -63,9 +64,10 @@ export default function Home() {
 					.
 				</h2>
 			</div>
-			<div className="tweet dark:dark flex min-h-screen items-center justify-center p-24">
+			<Skills/>
+			{/* <div className="tweet dark:dark flex min-h-screen items-center justify-center p-24">
 				<Tweet id ="1692455752424722780" />
-			</div>
+			</div> */}
 		</div>
 	);
 }
