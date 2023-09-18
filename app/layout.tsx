@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import ThemeSwitch from "./components/theme-switch";
 import ThemeContextProvider from "./context/theme-context";
+import ActiveSectionContextProvider from "./context/active-section-context";
 
 export const metadata: Metadata = {
 	title: {
@@ -68,17 +69,16 @@ export default function RootLayout({
 				<head>
 					<Analytics />
 				</head>
+				<ActiveSectionContextProvider>
 				<body
 					className={`bg-black ${
 						process.env.NODE_ENV === "development" ? "debug-screens" : undefined
 					}`}
 				>
 					{children}
-					
 					<ThemeSwitch/>
-					
-					
 				</body>
+				</ActiveSectionContextProvider>
 			</ThemeContextProvider>
 		</html>
 	);
