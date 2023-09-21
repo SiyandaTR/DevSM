@@ -67,6 +67,8 @@ export default function Home() {
 			<div className= " flex my-16">
 				<Skills/>
 			</div>
+
+			<Skills/>
 			
 			{/* <div className="tweet dark:dark flex min-h-screen items-center justify-center p-24">
 				<Tweet id ="1692455752424722780" />

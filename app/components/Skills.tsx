@@ -29,7 +29,7 @@ export default function Skills() {
       ref={ref}
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
-      <h2 className= "text-sm text-zinc-700 dark:text-zinc-500 ">
+      <h2 className= "text-sm text-zinc-700 dark:text-zinc-500 py-6">
         My skills
       </h2>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
