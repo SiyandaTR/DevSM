@@ -1,53 +1,89 @@
-// import NextAuth from 'next-auth'
-// // import GoogleProvider from 'next-auth/providers/google'
-// import GitHubProvider from 'next-auth/providers/github'
+import NextAuth from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
+import GitHubProvider from 'next-auth/providers/github'
+import CredentialsProvider  from 'next-auth/providers/credentials'
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from '@prisma/client';
 
-
-// import { MongoDBAdapter } from '@auth/mongodb-adapter'
+import { MongoDBAdapter } from '@auth/mongodb-adapter'
 // import clientPromise from '@/library/mongo/client'
+// import bcrypt from "bcrypt";
 
-// export const authOptions = {
-//   providers: [
-//     GitHubProvider({
-//       clientId: process.env.GITHUB_ID as string,
-//       clientSecret: process.env.GITHUB_SECRET as string,
-//       profile(profile) {
-//         return {
-//           id: profile.sub,
-//           name: profile.name,
-//           email: profile.email,
-//           image: profile.picture,
-//           role: profile.role ?? 'user'
-//         }
-//       }
-//     })
-//   ],
-//   callbacks: {
-//     async jwt({ token, user, trigger, session }) {
-//       if (user) {
-//         token.role = user.role
-//       }
+const prisma = new PrismaClient();
 
-//       if (trigger === 'update' && session?.name) {
-//         token.name = session.name
-//       }
+export const authOptions = {
+  adapter: PrismaAdapter(prisma),
 
-//       return token
-//     },
-//     async session({ session, token }) {
-//       session.user.role = token.role
-//       return session
-//     }
-//   },
-//   pages: {
-//     signIn: '/signin'
-//   },
+  providers: [
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture,
+          role: profile.role ?? 'user'
+        }
+      }
+    }),
+    GoogleProvider({
+        clientId: process.env.GOOGLE_ID as string,
+        clientSecret: process.env.GOOGLE_ID as string,
+        profile(profile){
+            return{
+                id: profile.sub,
+                name: profile.name,
+                email: profile.email,
+                image: profile.picture,
+                role: profile.role ?? 'user'
+            }
+        }
+    }),
+    CredentialsProvider ({
+        name: "Credentials",
+        credentials: {
+          username: { label: "Username", type: "text", placeholder: "username email" },
+          password: { label: "Password", type: "password" }
+        },
+        async authorize(credentials) {
+          
+        }
+      })
+  ],
+  callbacks: {
+    async jwt({ token, user, trigger, session }) {
+      if (user) {
+        token.role = user.role
+      }
+
+      if (trigger === 'update' && session?.name) {
+        token.name = session.name
+      }
+
+      return token
+    },
+    async session({ session, token }) {
+      session.user.role = token.role
+      return session
+    }
+  },
+  pages: {
+    signIn: '/auth/signin',
+    signOut: '/auth/signout',
+    error: '/auth/error', // Error code passed in query string as ?error=
+    verifyRequest: '/auth/verify-request', // (used for check email message)
+    newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
+  },
 //   adapter: MongoDBAdapter(clientPromise),
-//   session: {
-//     strategy: 'jwt'
-//   }
-// }
+  session: {
+    strategy: 'jwt'
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
+}
 
-// const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions)
 
-// export { handler as GET, handler as POST }
+export { handler as GET, handler as POST }
