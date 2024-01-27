@@ -11,6 +11,8 @@ const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
 	{ name: "Products", href: "/products" },
+	{ name: "Register", href: "/components/register " }, 
+	{ name: "LogIn", href: " /components/login"},
 ];
 
 export default function Home() {
@@ -70,6 +72,6 @@ export default function Home() {
 			{/* <div className="tweet dark:dark flex min-h-screen items-center justify-center p-24">
 				<Tweet id ="1692455752424722780" />
 			</div> */}
-		</div>
+		</div> 
 	);
 }

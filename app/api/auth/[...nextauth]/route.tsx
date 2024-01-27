@@ -13,6 +13,7 @@ const prisma = new PrismaClient();
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
+  //   adapter: MongoDBAdapter(clientPromise),
 
   providers: [
     GitHubProvider({
@@ -47,36 +48,35 @@ export const authOptions = {
           username: { label: "Username", type: "text", placeholder: "username email" },
           password: { label: "Password", type: "password" }
         },
-        async authorize(credentials) {
-          
+        async authorize( Credentials ) {
+          return  ();
         }
       })
   ],
-  callbacks: {
-    async jwt({ token, user, trigger, session }) {
-      if (user) {
-        token.role = user.role
-      }
+  // callbacks: {
+  //   async jwt({ token, user, trigger, session }) {
+  //     if (user) {
+  //       token.role = user.role
+  //     }
 
-      if (trigger === 'update' && session?.name) {
-        token.name = session.name
-      }
+  //     if (trigger === 'update' && session?.name) {
+  //       token.name = session.name
+  //     }
 
-      return token
-    },
-    async session({ session, token }) {
-      session.user.role = token.role
-      return session
-    }
-  },
+  //     return token
+  //   },
+  //   async session({ session, token }) {
+  //     session.user.role = token.role
+  //     return session
+  //   }
+  // },
   pages: {
-    signIn: '/auth/signin',
-    signOut: '/auth/signout',
-    error: '/auth/error', // Error code passed in query string as ?error=
-    verifyRequest: '/auth/verify-request', // (used for check email message)
-    newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
+    register: '/components/register',
+    // signOut: '/auth/signout',
+    // error: '/auth/error', // Error code passed in query string as ?error=
+    // verifyRequest: '/auth/verify-request', // (used for check email message)
+    // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
-//   adapter: MongoDBAdapter(clientPromise),
   session: {
     strategy: 'jwt'
   },
