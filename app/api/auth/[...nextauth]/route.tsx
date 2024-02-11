@@ -46,8 +46,8 @@ export const authOptions = {
         name: "Credentials",
         credentials: {
           username: { label: "Username", type: "text", placeholder: "username email" },
-          password: { label: "Password", type: "password" },
-          email: { label : "email", type: "email" },
+          password: { label: "Password", type: "password", placeholder : "Password"},
+          email: { label : "email", type: "email" , placeholder : "email"},
         },
         async authorize (Credentials) {
            if(!this.credentials.email || !this.credentials.password){
@@ -97,7 +97,7 @@ export const authOptions = {
     // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   session: {
-    strategy: 'jwt'
+    strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === "development",
