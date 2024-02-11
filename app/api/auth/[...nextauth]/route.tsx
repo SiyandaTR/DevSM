@@ -31,7 +31,7 @@ export const authOptions = {
     }),
     GoogleProvider({
         clientId: process.env.GOOGLE_ID as string,
-        clientSecret: process.env.GOOGLE_ID as string,
+        clientSecret: process.env.GOOGLE_SECRET as string,
         profile(profile){
             return{
                 id: profile.sub,
@@ -46,10 +46,29 @@ export const authOptions = {
         name: "Credentials",
         credentials: {
           username: { label: "Username", type: "text", placeholder: "username email" },
-          password: { label: "Password", type: "password" }
+          password: { label: "Password", type: "password" },
+          email: { label : "email", type: "email" },
         },
-        async authorize( Credentials ) {
-          return  ();
+        async authorize (Credentials) {
+           if(!this.credentials.email || !this.credentials.password){
+            return null;
+           }
+
+           const user = await prisma.user.findUnique({
+            where: {
+              email: this.credentials.email,
+            }
+           });
+
+           if(!user){
+            return null;
+           }
+          
+           const passwordsmatch = await user.compare(this.credentials.password, user.password);
+           if (!passwordsmatch){
+            return null;
+           }
+           return user;
         }
       })
   ],
@@ -72,7 +91,7 @@ export const authOptions = {
   // },
   pages: {
     register: '/components/register',
-    // signOut: '/auth/signout',
+    signIn: '/component/logIn',
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // (used for check email message)
     // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
@@ -84,6 +103,6 @@ export const authOptions = {
   debug: process.env.NODE_ENV === "development",
 };
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
