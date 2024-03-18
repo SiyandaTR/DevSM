@@ -1,4 +1,4 @@
-@layer base {
+/* @layer base {
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255,255,255,0.3);
   }
@@ -7,4 +7,4 @@
 .tweet :global(.react-tweet-theme) {
   --tweet-body-font-size: 1.25rem;
 }
-
+ */
