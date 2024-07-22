@@ -11,8 +11,6 @@ const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
 	{ name: "Products", href: "/products" },
-	{ name: "Register", href: "/components/register " }, 
-	{ name: "LogIn", href: " /components/login"},
 ];
 
 export default function Home() {
@@ -22,10 +20,9 @@ export default function Home() {
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
-
 							key={item.href}
 							href={item.href}
-							className="text-sm duration-500 text-zinc-700 hover:text-zinc-100 dark:text-zinc-500 dark:hover:text-zinc-300"
+							className="text-sm duration-500 text-zinc-700 hover:text-zinc-100 dark:text-zinc-100 dark:hover:text-zinc-300"
 						>
 							{item.name}
 						</Link>
@@ -36,7 +33,7 @@ export default function Home() {
 			<Particles
 				className="absolute inset-0 -z-10 animate-fade-in"
 				quantity={3000}
-				ease={50}
+				ease={10}
 			/>
 			<h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
 				SIYANDA FRONT
