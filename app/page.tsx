@@ -35,16 +35,19 @@ export default function Home() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<Particles
 				className="absolute inset-0 -z-10 animate-fade-in"
-				quantity={100}
+				quantity={1000}
+				ease={2}
+				staticity={2}
+				
 			/>
 			<h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-				S MKHIZE 2
+				SIYANDA FRONT
 			</h1>
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-700 dark:text-zinc-500 ">
-					Hi, my name is Siyanda Mkhize From, I'm building Web applications in and for South Africa.
+				<h2 className="text-sm text-zinc-700 dark:text-zinc-100 ">
+					My name is Siyanda Mkhize From Durban KwaZulu, a Web developer 
 					Using the latest technology{" "}
 					<Link
 						target="_blank"
