@@ -7,6 +7,8 @@ import type { TwitterComponents } from "react-tweet";
 import { components } from "./components/react-tweet/Tweet-components";
 import Skills from "./components/Skills";
 
+import ca;
+
 const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
