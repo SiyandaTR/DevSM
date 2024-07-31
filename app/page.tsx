@@ -36,7 +36,7 @@ export default function Home() {
 				quantity={3000}
 			/>
 			<div>
-				<h1 className="text-gradient z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+				<h1 className=" z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
 					SIYANDA FRONT
 				</h1>
 			</div>
@@ -49,7 +49,7 @@ export default function Home() {
 					<Link
 						target="_blank"
 						href="https://upstash..com"
-						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300 " 
+						className="text-gradient underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300 " 
 					>
 						JavaScript
 					</Link>
@@ -59,7 +59,7 @@ export default function Home() {
 					<Link
 						target="_blank"
 						href="https://unkey..dev"
-						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300"
+						className="text-gradient underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300"
 					>
 						C#
 					</Link>{" "}
