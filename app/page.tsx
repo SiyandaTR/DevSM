@@ -7,11 +7,12 @@ import type { TwitterComponents } from "react-tweet";
 import { components } from "./components/react-tweet/Tweet-components";
 import Skills from "./components/Skills";
 
-
 const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
 	{ name: "Products", href: "/products" },
+	{ name: "Register", href: "/components/register " }, 
+	{ name: "LogIn", href: " /components/login"},
 ];
 
 export default function Home() {
@@ -21,9 +22,10 @@ export default function Home() {
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
+
 							key={item.href}
 							href={item.href}
-							className="text-sm duration-500 text-zinc-700 hover:text-zinc-100 dark:text-zinc-100 dark:hover:text-zinc-300"
+							className="text-sm duration-500 text-zinc-700 hover:text-zinc-100 dark:text-zinc-500 dark:hover:text-zinc-300"
 						>
 							{item.name}
 						</Link>
@@ -33,30 +35,21 @@ export default function Home() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<Particles
 				className="absolute inset-0 -z-10 animate-fade-in"
-				quantity={3000}
+				quantity={100}
 			/>
-<<<<<<< HEAD
 			<h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-				S MKHIZE  r
+				S MKHIZE
 			</h1>
 
-=======
-			<div>
-				<h1 className=" z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-					SIYANDA FRONT
-				</h1>
-			</div>
-			
->>>>>>> 4758d68d86a23f399b35b6d955ddd11ae0b0a599
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-700 dark:text-zinc-100 ">
-					My name is Siyanda Mgazi From Durban KwaZulu, a Web developer 
+				<h2 className="text-sm text-zinc-700 dark:text-zinc-500 ">
+					Hi, my name is Siyanda Mkhize From, I'm building Web applications in and for South Africa.
 					Using the latest technology{" "}
 					<Link
 						target="_blank"
 						href="https://upstash..com"
-						className="text-gradient underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300 " 
+						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300 " 
 					>
 						JavaScript
 					</Link>
@@ -66,7 +59,7 @@ export default function Home() {
 					<Link
 						target="_blank"
 						href="https://unkey..dev"
-						className="text-gradient underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300"
+						className="underline duration-500 hover:text-zinc-100 dark:hover:text-zinc-300"
 					>
 						C#
 					</Link>{" "}
