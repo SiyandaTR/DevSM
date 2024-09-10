@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 		siteName: "S_Mkhize_front",
 		images: [
 			{
-				url: "https://chronark.com/og.png",
+				url: "https://siyanda.vercel.app/favicon.png",
 				width: 1920,
 				height: 1080,
 			},

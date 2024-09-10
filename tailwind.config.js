@@ -3,11 +3,12 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
+		"./src/**/*.{html,js}",
 		"./app/**/*.{js,ts,jsx,tsx}",
 		"./mdx-components.tsx",
 		"content/**/*.mdx",
 	],
-
+	
 	theme: {
 		extend: {
 			typography: {
