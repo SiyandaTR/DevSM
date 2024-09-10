@@ -8,9 +8,9 @@ import { components } from "./components/react-tweet/Tweet-components";
 import Skills from "./components/Skills";
 
 const navigation = [
+	{ name: "Products", href: "/products" },
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
-	{ name: "Products", href: "/products" },
 	{ name: "Register", href: "/components/register " }, 
 	{ name: "LogIn", href: " /components/login"},
 ];
