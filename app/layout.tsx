@@ -1,85 +1,49 @@
-import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
-import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
-import ThemeSwitch from "./components/theme-switch";
-import ThemeContextProvider from "./context/theme-context";
-import ActiveSectionContextProvider from "./context/active-section-context";
+import type React from "react"
+import type { Metadata } from "next"
+import { Figtree } from "next/font/google"
+import { GeistMono } from "geist/font/mono"
+import { Instrument_Serif } from "next/font/google"
+import "./globals.css"
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-figtree",
+  display: "swap",
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-	title: {
-		default: "SM",
-		template: "%s | ",
-	},
-	description: "Software developer portfolio",
-	openGraph: {
-		title: "Portfolio",
-		description:
-			"Software developer portfolio",
-		url: "https://siyanda.vercel.app",
-		siteName: "S_Mkhize_front",
-		images: [
-			{
-				url: "https://siyanda.vercel.app/favicon.png",
-				width: 1920,
-				height: 1080,
-			},
-		],
-		locale: "en-RSA",
-		type: "website",
-	},
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			"max-video-preview": -1,
-			"max-image-preview": "large",
-			"max-snippet": -1,
-		},
-	},
-	twitter: {
-		title: "SiyandaTRMkhiz2",
-		card: "summary_large_image",
-	},
-	icons: {
-		shortcut: "/favicon.png",
-	},
-};
-const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
-
-const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
-});
+  title: "v0 App",
+  description: "Created with v0",
+  generator: "v0.app",
+}
 
 export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
-	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-			<ThemeContextProvider>
-				<head>
-					<Analytics />
-				</head>
-				<ActiveSectionContextProvider>
-				<body
-					className={`bg-black ${
-						process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-					}`}
-				>
-					{children}
-					<ThemeSwitch/>
-				</body>
-				</ActiveSectionContextProvider>
-			</ThemeContextProvider>
-		</html>
-	);
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <style>{`
+html {
+  font-family: ${figtree.style.fontFamily};
+  --font-sans: ${figtree.variable};
+  --font-mono: ${GeistMono.variable};
+  --font-instrument-serif: ${instrumentSerif.variable};
+}
+        `}</style>
+      </head>
+      <body className={`${figtree.variable} ${instrumentSerif.variable}`}>{children}</body>
+    </html>
+  )
 }
