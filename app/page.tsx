@@ -10,7 +10,7 @@ export default function ShaderShowcase() {
     <ShaderBackground>
       <Header />
       <HeroContent />
-      <PulsingCircle />
+      {/* <PulsingCircle /> */}
     </ShaderBackground>
   )
 }
