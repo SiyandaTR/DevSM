@@ -1,10 +1,19 @@
 "use client"
 
-export default function Header() {
+interface HeaderProps {
+  activeSection: "landing" | "academia" | "projects" | "blogOut"
+  onSectionChange: (section: "landing" | "academia" | "projects" | "blogOut") => void
+}
+
+// export default function Header({ activeSection, onSectionChange }: HeaderProps) {
+
+export default function Header({ activeSection, onSectionChange }: HeaderProps) {
   return (
     <header className="relative z-20 flex items-center justify-between p-6">
       {/* Logo */}
-      <div className="flex items-center">
+      <div 
+        onClick={ () => onSectionChange("landing")}
+        className="flex items-center">
         <img  src="/Group 3(1).svg" 
               alt="Logo" 
               className="size-10 translate-x-[-0.5px] text-white" 
@@ -15,26 +24,36 @@ export default function Header() {
       </div>
 
       {/* Navigation */}
+
+      
+
       <nav className="flex items-center space-x-2">
-        <a
-          // href="/academia"
-          href="#"
+        <button
+          onClick={() => onSectionChange ("academia") }
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           Academia
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
+          onClick={() =>onSectionChange("projects")}
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           Projects
-        </a>
-        <a
-          href="#"
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
+        </button>
+        <button
+          onClick={() => onSectionChange("blogOut")}
+          className="text-white/80 
+          hover:text-white 
+          text-xs 
+          font-light 
+          px-3 py-2 
+          rounded-full 
+          hover:bg-white/10 
+          transition-all 
+          duration-200"
         >
           Blog out
-        </a>
+        </button>
       </nav>
 
       {/* Button Group with Arrow */}
@@ -51,3 +70,4 @@ export default function Header() {
     </header>
   )
 }
+
