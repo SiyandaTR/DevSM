@@ -14,7 +14,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
       <div 
         onClick={ () => onSectionChange("landing")}
         className="flex items-center">
-        <img  src="/Group 3(1).svg" 
+        <img  src="/ClubLogo.png" 
               alt="Logo" 
               className="size-10 translate-x-[-0.5px] text-white" 
               width={40}
