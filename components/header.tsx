@@ -1,5 +1,8 @@
 "use client"
 
+import { Rotate3D } from "lucide-react";
+import {animate, motion, scale} from "motion/react";
+
 interface HeaderProps {
   activeSection: "landing" | "academia" | "projects" | "blogOut"
   onSectionChange: (section: "landing" | "academia" | "projects" | "blogOut") => void
@@ -10,7 +13,8 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
   return (
     <header className="relative z-20 flex items-center justify-between p-6">
       {/* Logo */}
-      <div
+      <motion.div 
+        whileHover= {{scale : 1.3}}
         onClick={() => onSectionChange("landing")}
         className="flex items-center ">
         <img src="/ClubLogo.png"
@@ -20,7 +24,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
           height={40}
           draggable={false}
         />
-      </div>
+      </motion.div>
 
       {/* Navigation */}
 
