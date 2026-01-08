@@ -36,7 +36,7 @@ export default function HeroContent({activeSection}: ContentSectionsProps) {
   }
 
   return (
-    <main className="absolute bottom-2 left-8 z-60 max-w-2xl">
+    <main className="absolute bottom-4 left-8 z-60 max-w-2xl">
       <AnimatePresence mode="wait">
         {activeSection === "landing" && (
           <motion.div>
