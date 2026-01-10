@@ -111,13 +111,13 @@ export default function HeroContent({ activeSection }: ContentSectionsProps) {
 
         {activeSection === "projects" && (
           <motion.div>
-            <div> Send Help</div>
+            <div> </div>
           </motion.div>
         )}
 
         {activeSection === "blogOut" && (
           <motion.div>
-            <div>Pls ;)</div>
+            <div></div>
           </motion.div>
         )}
 
