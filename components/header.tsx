@@ -39,7 +39,7 @@ export default function Header({ activeSection, onSectionChange }: HeaderProps) 
           onClick={() => onSectionChange("academia")}
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
-          Academia
+          Academia  dddd
         </button>
         <button
           onClick={() => onSectionChange("projects")}
